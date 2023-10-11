@@ -1,0 +1,22 @@
+Just Note
+
+
+簡単な説明
+Most Simple, Ad-free, Privacy-safe, Sandbox, and Free note taking app.
+
+
+詳細の説明
+Experience the epitome of simplicity with our note-taking app "Just Note". Designed with a minimalist approach, our application ensures an ad-free environment where your privacy is paramount. We don't gather your data, and our sandbox nature guarantees a secure space for your notes. What's more? It's completely free. Plus, never miss a thought with our real-time save feature. Dive into a seamless and safe note-taking experience now!
+
+Key Features:
+
+- Minimalist Design: Uncluttered and straightforward.
+- Ad-free: No interruptions, just your notes.
+- Privacy-first: We don't collect or store your data.
+- Sandboxed Environment: Your notes stay safe and secure.
+- Completely Free: No hidden charges or in-app purchases.
+- Real-time Save: Your thoughts are captured as you type.
+- Dark Mode: For a comfortable reading experience in low-light conditions.
+
+リリースノート
+Version 1.0.0 - Initial Release
