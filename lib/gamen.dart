@@ -32,9 +32,32 @@ class _NoteDetailScreenState extends State<NoteDetailScreen> {
   }
 
   void _deleteAndPop() {
-    Provider.of<NoteProvider>(context, listen: false)
-        .deleteNote(widget.note.id);
-    Navigator.pop(context);
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text('Delete?'),
+          content: Text('Are you sure you want to delete this note?'),
+          actions: [
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pop(); // ダイアログを閉じる
+              },
+              child: Text('No'),
+            ),
+            TextButton(
+              onPressed: () {
+                Provider.of<NoteProvider>(context, listen: false)
+                    .deleteNote(widget.note.id);
+                Navigator.of(context).pop(); // ダイアログを閉じる
+                Navigator.pop(context); // 画面を閉じる
+              },
+              child: Text('Yes'),
+            ),
+          ],
+        );
+      },
+    );
   }
 
   @override
@@ -110,6 +133,34 @@ class _NewNoteScreenState extends State<NewNoteScreen> {
     Navigator.pop(context);
   }
 
+  void _discardAndPop() {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text('Discard?'),
+          content: Text('Are you sure you want to discard this note?'),
+          actions: [
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pop(); // ダイアログを閉じる
+              },
+              child: Text('No'),
+            ),
+            TextButton(
+              onPressed: () {
+                _controller.clear();
+                Navigator.of(context).pop(); // ダイアログを閉じる
+                Navigator.pop(context); // 画面を閉じる
+              },
+              child: Text('Yes'),
+            ),
+          ],
+        );
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
@@ -125,6 +176,10 @@ class _NewNoteScreenState extends State<NewNoteScreen> {
             onPressed: _saveAndPop,
           ),
           actions: [
+            IconButton(
+              icon: Icon(Icons.delete),
+              onPressed: _discardAndPop,
+            ),
             IconButton(
               icon: Icon(Icons.save),
               onPressed: _saveAndPop,
