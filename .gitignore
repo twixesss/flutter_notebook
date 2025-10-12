@@ -1,44 +1,59 @@
-# Miscellaneous
-*.class
-*.log
-*.pyc
-*.swp
+# OS / Editors
 .DS_Store
-.atom/
-.buildlog/
-.history
-.svn/
-migrate_working_dir/
-
-# IntelliJ related
+*.log
+*.swp
+*.swo
 *.iml
 *.ipr
 *.iws
 .idea/
 
-# The .vscode folder contains launch configuration and tasks you configure in
-# VS Code which you may wish to be included in version control, so this line
-# is commented out by default.
-#.vscode/
-
-# Flutter/Dart/Pub related
-**/doc/api/
-**/ios/Flutter/.last_build_id
+# Flutter / Dart
 .dart_tool/
-.flutter-plugins
-.flutter-plugins-dependencies
 .packages
 .pub-cache/
 .pub/
+**/doc/api/
+# ルートのビルド成果物
 /build/
 
-# Symbolication related
-app.*.symbols
+# Android
+android/local.properties
+android/key.properties
+android/.gradle/
+android/**/build/
+android/app/.cxx/
+android/app/*.keystore
+android/app/*.jks
+# 任意: 機密管理する場合のみ除外
+# android/app/google-services.json
 
-# Obfuscation related
+# iOS / macOS
+ios/Pods/
+ios/.symlinks/
+ios/Flutter/Generated.xcconfig
+ios/Flutter/flutter_export_environment.sh
+ios/Flutter/.last_build_id
+macos/Flutter/ephemeral/
+
+# Linux / Windows
+linux/flutter/ephemeral/
+windows/flutter/ephemeral/
+
+# Symbolication / Obfuscation
+app.*.symbols
 app.*.map.json
 
-# Android Studio will place build artifacts here
-/android/app/debug
-/android/app/profile
-/android/app/release
+# Coverage
+coverage/
+
+# 環境ファイル
+.env
+.env.*
+.envrc
+
+# Fastlane
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots/
+fastlane/test_output/
