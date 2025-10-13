@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import 'gamen.dart';
 import 'note_model.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -27,9 +28,21 @@ class MyApp extends StatelessWidget {
     final themeProvider = Provider.of<ThemeProvider>(context);
     return MaterialApp(
       title: 'Simple Note App',
-      theme: themeProvider.themeData,
-      home: NoteListScreen(),
+      theme: themeProvider.themeData.copyWith(
+        // フォントは textTheme に適用する
+        textTheme: themeProvider.themeData.textTheme.apply(fontFamily: 'NotoSansJP'),
+      ),
       debugShowCheckedModeBanner: false,
+      home: NoteListScreen(),
+      localizationsDelegates: const [
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+      ],
+      supportedLocales: const [
+        Locale('ja'),
+        Locale('en'),
+      ],
     );
   }
 }
